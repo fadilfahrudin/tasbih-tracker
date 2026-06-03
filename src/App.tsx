@@ -1,12 +1,24 @@
 import { useState } from 'react'
 import './App.css'
 import { IoAddOutline } from 'react-icons/io5'
+import { usePWAInstall } from './hooks/usePWAInstall';
 
 function App() {
   const [count, setCount] = useState(0)
+  const {
+    isInstallable,
+    installApp,
+  } = usePWAInstall();
 
   return (
     <>
+      {
+        isInstallable && (
+          <div className='floatingContainer'>
+            <button className='floatingBtn' type='button' onClick={installApp}>Install App</button>
+          </div>
+        )
+      }
       <section id="center">
         <h1>Vite + React</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid totam laborum labore aut obcaecati numquam cum quasi eligendi incidunt corporis.</p>

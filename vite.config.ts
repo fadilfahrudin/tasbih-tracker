@@ -25,9 +25,9 @@ export default defineConfig({
         description:
           "Tasbih | Tracker",
 
-        theme_color: "#ffffff",
+        theme_color: "#051f20",
 
-        background_color: "#ffffff",
+        background_color: "#051f20",
 
         display: "standalone",
 
