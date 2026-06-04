@@ -1,16 +1,31 @@
-import { useState } from 'react'
-import './App.css'
-import { IoAddOutline, IoReloadSharp } from 'react-icons/io5'
-import { usePWAInstall } from './hooks/usePWAInstall';
+import { useEffect, useState } from 'react';
+import { AiFillMoon, AiFillSun } from 'react-icons/ai';
 import { IoIosInformationCircle, IoMdBookmark } from 'react-icons/io';
-import { AiFillMoon } from 'react-icons/ai';
+import { IoAddOutline, IoReloadSharp } from 'react-icons/io5';
+import './App.css';
+import { usePWAInstall } from './hooks/usePWAInstall';
 
 function App() {
   const [count, setCount] = useState(0)
+  const [isDark, setIsDark] = useState(() => {
+    return window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches;
+  });
   const {
     isInstallable,
     installApp,
   } = usePWAInstall();
+
+  useEffect(() => {
+    document.documentElement.classList.toggle(
+      'dark',
+      isDark
+    );
+  }, [isDark]);
+  const toggleDarkMode = () => {
+    setIsDark(prev => !prev);
+  };
 
   return (
     <>
@@ -19,18 +34,23 @@ function App() {
           type="button"
           onClick={() => setCount((count) => count + 1)}
         >
-          <IoIosInformationCircle  color='var(--accent-bg)' size={28} />
+          <IoIosInformationCircle color='var(--accent-bg)' size={28} />
         </button>
         <button
           type="button"
-          onClick={() => setCount((count) => count + 1)}
+          className='darkModeToggle'
+          onClick={toggleDarkMode}
         >
-          <AiFillMoon  color='var(--secondary)' size={28} />
+          {
+            !isDark
+              ? <AiFillMoon color='var(--primary)' size={28} />
+              : <AiFillSun color='var(--secondary)' size={28} />
+          }
         </button>
       </header>
 
-      <section id="center">
-        <img src="/bismillah.svg" alt="bismillah hirrahmanirrahim" width={282} height={105} className='bismillah' loading='eager' />
+      <section id="center" className='wording'>
+        <h1>بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h1>
         <p>“Dengan nama Allah yang maha pengasih lagi maha penyayang.”</p>
       </section>
 
@@ -38,7 +58,7 @@ function App() {
         <button
           type="button"
           className='resetBtn'
-          onClick={() => setCount((count) => count + 1)}
+          onClick={() => setCount(0)}
         >
           <IoReloadSharp color='var(--accent)' size={32} />
         </button>
@@ -60,7 +80,7 @@ function App() {
           className="counter"
           onClick={() => setCount((count) => count + 1)}
         >
-          <IoAddOutline color='var(--accent)' size={52} />
+          <IoAddOutline color='var(--surface-container)' size={52} />
         </button>
       </section>
 

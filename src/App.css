@@ -1,4 +1,4 @@
-.bismillah{
+.bismillah {
   object-fit: contain;
 }
 
@@ -15,7 +15,7 @@
 
 .floatingBtn {
   background-color: var(--accent-bg);
-  color: var(--text);
+  color: var(--surface-container);
   border-radius: 0.5em;
   padding: 0.5em 1em;
   border: none;
@@ -25,22 +25,22 @@
   margin-right: 1em;
 }
 
-.countSection{
+.countSection {
   .number {
     font-size: 8rem;
   }
-  button{
+  button {
     position: absolute;
     background-color: var(--surface-btn);
+    border: none;
   }
-  .resetBtn{
+  .resetBtn {
     left: 0;
     border-radius: 0 32px 32px 0;
   }
-  .saveBtn{
+  .saveBtn {
     right: 0;
     border-radius: 32px 0 0 32px;
-
   }
 }
 
@@ -50,8 +50,8 @@
   background: var(--accent-bg);
   border: 2px solid transparent;
   transition: border-color 0.3s;
-  width: 40%;
-  height: auto;
+  width: 10rem;
+  height: 10rem;
   aspect-ratio: 1 / 1;
 
   &:hover {
@@ -66,15 +66,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 40px 24px;
-  button{
+  padding: 1em 0;
+  button {
     background: none;
     border: none;
     cursor: pointer;
     overflow: hidden;
+    height: 32px;
   }
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
+  .darkModeToggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    svg {
+      flex-shrink: 0;
+    }
+  }
+}
+
+section.wording {
+  gap: 5px !important;
+  p {
+    width: 80%;
   }
 }
 
@@ -85,11 +98,6 @@
   place-content: center;
   place-items: center;
   flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
 }
 
 #spacer {

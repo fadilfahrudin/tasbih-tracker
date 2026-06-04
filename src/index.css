@@ -1,6 +1,13 @@
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
 :root {
   --primary: #163832;
-  --secondary: #DBF2DE;
+  --secondary: #dbf2de;
 
   --text: #0b2b26;
   --text-h: #08060d;
@@ -11,6 +18,7 @@
   --accent-border: #8eb69b;
 
   --surface-btn: var(--accent-border);
+  --surface-container: var(--bg);
 
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
@@ -34,20 +42,20 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #daf1de;
-    --text-h: #f3f4f6;
-    --bg: #051f20;
-    --border: #2e303a;
-    --accent: #163832;
-    --accent-bg: #8eb69b;
-    --accent-border: #0b2b26;
+html.dark {
+  --text: #daf1de;
+  --text-h: #f3f4f6;
+  --bg: #051f20;
+  --border: #2e303a;
+  --accent: #163832;
+  --accent-bg: #8eb69b;
+  --accent-border: #0b2b26;
 
-    --surface-btn: var(--secondary);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+  --surface-btn: var(--secondary);
+  --surface-container: var(--bg);
+
+  --shadow:
+    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
 }
 
 #root {
@@ -60,9 +68,9 @@
   flex-direction: column;
   box-sizing: border-box;
   @media (min-width: 768px) {
-    max-width: 400px;
+    max-width: 480px;
     border: 1px solid var(--border);
-    padding: 2em;
+    padding: 1em;
   }
 }
 
@@ -78,13 +86,8 @@ h2 {
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 32px;
   letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
 }
 h2 {
   font-size: 24px;
