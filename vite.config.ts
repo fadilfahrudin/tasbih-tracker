@@ -16,6 +16,7 @@ export default defineConfig({
       includeAssets: [
         "favicon.svg",
         "apple-touch-icon.png",
+        "bismillah.png"
       ],
 
       manifest: {

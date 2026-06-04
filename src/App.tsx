@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './App.css'
-import { IoAddOutline } from 'react-icons/io5'
+import { IoAddOutline, IoReloadSharp } from 'react-icons/io5'
 import { usePWAInstall } from './hooks/usePWAInstall';
+import { IoIosInformationCircle, IoMdBookmark } from 'react-icons/io';
+import { AiFillMoon } from 'react-icons/ai';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,20 +14,46 @@ function App() {
 
   return (
     <>
-      {
-        isInstallable && (
-          <div className='floatingContainer'>
-            <button className='floatingBtn' type='button' onClick={installApp}>Install App</button>
-          </div>
-        )
-      }
+      <header id="header">
+        <button
+          type="button"
+          onClick={() => setCount((count) => count + 1)}
+        >
+          <IoIosInformationCircle  color='var(--accent-bg)' size={28} />
+        </button>
+        <button
+          type="button"
+          onClick={() => setCount((count) => count + 1)}
+        >
+          <AiFillMoon  color='var(--secondary)' size={28} />
+        </button>
+      </header>
+
       <section id="center">
-        <h1>Vite + React</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid totam laborum labore aut obcaecati numquam cum quasi eligendi incidunt corporis.</p>
+        <img src="/bismillah.png" alt="bismillah hirrahmanirrahim" width={310} height={115} className='bismillah' loading='eager' />
+        <p>“Dengan nama Allah yang maha pengasih lagi maha penyayang.”</p>
       </section>
-      <section id="center">
+
+      <section id="center" className='countSection'>
+        <button
+          type="button"
+          className='resetBtn'
+          onClick={() => setCount((count) => count + 1)}
+        >
+          <IoReloadSharp color='var(--accent)' size={32} />
+        </button>
+
         <span className='number'>{count}</span>
+
+        <button
+          type="button"
+          className='saveBtn'
+          onClick={() => setCount((count) => count + 1)}
+        >
+          <IoMdBookmark color='var(--accent)' size={32} />
+        </button>
       </section>
+
       <section id="center">
         <button
           type="button"
@@ -35,6 +63,14 @@ function App() {
           <IoAddOutline color='var(--accent)' size={52} />
         </button>
       </section>
+
+      {
+        isInstallable && (
+          <div className='floatingContainer'>
+            <button className='floatingBtn' type='button' onClick={installApp}>Install App</button>
+          </div>
+        )
+      }
     </>
   )
 }
