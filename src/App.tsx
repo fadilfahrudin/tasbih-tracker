@@ -30,7 +30,7 @@ function App() {
       </header>
 
       <section id="center">
-        <img src="/bismillah.png" alt="bismillah hirrahmanirrahim" width={282} height={105} className='bismillah' loading='eager' />
+        <img src="/bismillah.svg" alt="bismillah hirrahmanirrahim" width={282} height={105} className='bismillah' loading='eager' />
         <p>“Dengan nama Allah yang maha pengasih lagi maha penyayang.”</p>
       </section>
 
