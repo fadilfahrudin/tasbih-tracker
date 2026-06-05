@@ -1,21 +1,26 @@
-import { useEffect, useState } from 'react';
+import { Activity, useEffect, useState } from 'react';
 import { AiFillMoon, AiFillSun } from 'react-icons/ai';
 import { IoIosInformationCircle, IoMdBookmark } from 'react-icons/io';
-import { IoAddOutline, IoReloadSharp } from 'react-icons/io5';
+import { IoAddOutline, IoClose, IoReloadSharp } from 'react-icons/io5';
 import './App.css';
 import { usePWAInstall } from './hooks/usePWAInstall';
 
 function App() {
   const [count, setCount] = useState(0)
+  const [isInstallBtnVisible, setIsInstallBtnVisible] = useState(true);
+
+  const {
+    isInstallable,
+    installApp,
+  } = usePWAInstall();
+  
+
   const [isDark, setIsDark] = useState(() => {
     return window.matchMedia(
       '(prefers-color-scheme: dark)'
     ).matches;
   });
-  const {
-    isInstallable,
-    installApp,
-  } = usePWAInstall();
+
 
   useEffect(() => {
     document.documentElement.classList.toggle(
@@ -84,13 +89,12 @@ function App() {
         </button>
       </section>
 
-      {
-        isInstallable && (
-          <div className='floatingContainer'>
+      <Activity mode={isInstallBtnVisible && isInstallable ? 'visible' : 'hidden'}>
+        <div className='floatingContainer'>
+            <button className='floatingBtnClose' type='button' onClick={() => setIsInstallBtnVisible(false)}><IoClose color='var(--surface-btn)' size={22} /></button>
             <button className='floatingBtn' type='button' onClick={installApp}>Install App</button>
           </div>
-        )
-      }
+      </Activity>
     </>
   )
 }
