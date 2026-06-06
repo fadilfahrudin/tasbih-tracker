@@ -13,7 +13,7 @@
   background-color: var(--accent);
 }
 
-.floatingBtnClose{
+.floatingBtnClose {
   background: none;
   border: none;
 }
@@ -42,6 +42,14 @@
   .resetBtn {
     left: 0;
     border-radius: 0 32px 32px 0;
+    span {
+      position: absolute;
+      left: 16px;
+      top: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--accent);
+    }
   }
   .saveBtn {
     right: 0;
@@ -55,8 +63,8 @@
   background: var(--accent-bg);
   border: 2px solid transparent;
   transition: border-color 0.3s;
-  width: 10rem;
-  height: 10rem;
+  width: 80%;
+  height: 80%;
   aspect-ratio: 1 / 1;
 
   &:hover {
@@ -67,26 +75,14 @@
     outline-offset: 2px;
   }
 }
-#header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em 0;
-  button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    height: 32px;
-  }
-  .darkModeToggle {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    svg {
-      flex-shrink: 0;
-    }
-  }
+
+.modalContainer {
+  backdrop-filter: blur(20px) ;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 section.wording {

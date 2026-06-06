@@ -1,0 +1,136 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    height: 32px;
+  }
+  .darkModeToggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    svg {
+      flex-shrink: 0;
+    }
+  }
+}
+
+.info {
+  position: relative;
+}
+
+.modalInfo {
+  position: absolute;
+  z-index: 9999;
+  width: max-content;
+  background-color: var(--accent-bg);
+  color: var(--surface-container);
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  border: none;
+  cursor: pointer;
+  right: 1em;
+  top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  & > div {
+    border-bottom: 1px solid var(--accent-border);
+    padding: 0.5em 0;
+    width: 100%;
+    text-align: start;
+    font-size: 1rem;
+    font-weight: 400;
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+.infoValue {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.ICarrowUp {
+  transform: rotate(45deg);
+  color: var(--surface-container);
+}
+
+.rightMenu {
+  display: flex;
+  gap: 2px;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.leftMenu {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  .profile {
+    position: relative;
+    .img {
+      width: 50px;
+      height: 50px;
+      position: relative;
+      border-radius: 50px;
+      border: 1px solid var(--accent-border);
+      background-color: var(--accent-bg);
+      outline: 1px solid var(--accent-bg);
+      outline-offset: 2px;
+    }
+    .detail {
+      position: absolute;
+      z-index: 9999;
+      width: max-content;
+      background-color: var(--accent-bg);
+      color: var(--surface-container);
+      border-radius: 0.5em;
+      padding: 0.5em 1em;
+      border: none;
+      cursor: pointer;
+      left: 0;
+      top: 120%;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      & > div {
+        border-bottom: 1px solid var(--accent-border);
+        padding: 0.5em 0;
+        width: 100%;
+        text-align: start;
+        font-size: 1.2rem;
+        font-weight: 400;
+
+        &:last-child {
+          border: none;
+          button{
+            background-color: var(--accent);
+            color: var(--text);
+          }
+        }
+
+        button {
+          font-size: 1rem;
+          background: none;
+          border: 1px solid var(--accent-border);
+          border-radius: 0.2em;
+          padding: 0.5em 1em;
+          color: var(--surface-container);
+          font-weight: bold;
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

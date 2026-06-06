@@ -1,0 +1,66 @@
+.container {
+  padding: 1em;
+  width: 100%;
+}
+
+.modal {
+  width: 100%;
+  background-color: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 1rem;
+  text-align: start;
+  color: var(--surface-container);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  & > div {
+    border-bottom: 1px solid var(--accent-border);
+    padding: 0.8em 1em;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg);
+
+  h1 {
+    font-size: 1.5rem;
+  }
+  button {
+    background: none;
+    border: none;
+    padding: 1em;
+  }
+}
+
+.body {
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+
+  button {
+    background: none;
+    border: 1px solid var(--accent-border);
+    border-radius: 0.5em;
+    padding: 1em;
+    color: var(--surface-container);
+    font-weight: bold;
+
+    &:first-child {
+      background-color: var(--accent-border);
+      color: var(--text);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
