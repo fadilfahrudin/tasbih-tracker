@@ -1,8 +1,8 @@
-import React, { Activity, useEffect, useState } from 'react'
+import { Activity, useEffect, useState } from 'react';
 import { AiFillMoon, AiFillSun } from 'react-icons/ai';
 import { IoIosInformationCircle } from 'react-icons/io';
-import styles from './header.module.css'
 import { IoArrowUp, IoSaveSharp } from 'react-icons/io5';
+import styles from './header.module.css';
 
 const Header = () => {
     const [isInfoOpen, setIsInfoOpen] = useState(false);
