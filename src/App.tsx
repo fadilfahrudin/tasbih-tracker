@@ -1,17 +1,21 @@
 import { Activity, useState } from 'react';
-import { IoMdBookmark } from 'react-icons/io';
-import { IoAddOutline, IoClose, IoReloadSharp } from 'react-icons/io5';
+// import { IoMdBookmark } from 'react-icons/io';
+import { IoAddOutline, IoClose, IoRemove } from 'react-icons/io5';
 import './App.css';
 import Header from './components/Header';
 import Modal from './components/Modal';
 import { usePWAInstall } from './hooks/usePWAInstall';
+// import Profile from './components/Profile';
+import { useScreenStore } from './hooks/useScreenStore';
+import { useCounterStore } from './hooks/useCounterStore';
 
 function App() {
-  const [count, setCount] = useState(0)
   const [isModalResetVisible, setIsModalResetVisible] = useState(false);
   const [isModalSaveVisible, setIsModalSaveVisible] = useState(false);
   const [isInstallBtnVisible, setIsInstallBtnVisible] = useState(true);
   const [dzikirName, setDzikirName] = useState('');
+  const screen = useScreenStore((state) => state.screen)
+  const { count, increment, reset, decrement } = useCounterStore((state) => state)
 
   const {
     isInstallable,
@@ -19,12 +23,12 @@ function App() {
   } = usePWAInstall();
 
   const handleReset = () => {
-    setCount(0);
+    reset();
     setIsModalResetVisible(false);
   }
 
   const handleSave = () => {
-    setCount(0);
+    reset();
     setIsModalSaveVisible(false);
     alert(`Dzikir ${dzikirName} berhasil disimpan!`);
     setDzikirName('');
@@ -34,36 +38,46 @@ function App() {
     <>
       <Header />
 
-      <section id="center" className='countSection'>
-        <button
-          type="button"
-          className='resetBtn'
-          onClick={() => setIsModalResetVisible(true)}
-        >
-          <span>0</span>
-          <IoReloadSharp color='var(--accent)' size={32} />
-        </button>
+      {/* {
+        screen === "profile" && (
+          <Profile />
+        )
+      } */}
 
-        <span className='number'>{count}</span>
+      {
+        screen === "main" && (
+          <>
+            <section id="center" className='countSection'>
+              <span className='number'>{count}</span>
 
-        <button
-          type="button"
-          className='saveBtn'
-          onClick={() => setIsModalSaveVisible(true)}
-        >
-          <IoMdBookmark color='var(--accent)' size={32} />
-        </button>
-      </section>
+              {/* <button
+                type="button"
+                className='saveBtn'
+                onClick={() => setIsModalSaveVisible(true)}
+              >
+                <IoMdBookmark color='var(--accent)' size={32} />
+              </button> */}
+            </section>
 
-      <section id="center">
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          <IoAddOutline color='var(--surface-container)' size={52} />
-        </button>
-      </section>
+            <section id="center" className='counterSection'>
+              <button
+                type="button"
+                className="counter"
+                onClick={increment}
+              >
+                <IoAddOutline color='var(--surface-container)' size={52} />
+              </button>
+              <button
+                type="button"
+                className="decrement"
+                onClick={decrement}
+              >
+                <IoRemove  color='var(--surface-bg)' size={32} />
+              </button>
+            </section>
+          </>
+        )
+      }
 
       <Activity mode={isInstallBtnVisible && isInstallable ? 'visible' : 'hidden'}>
         <div className='floatingContainer'>

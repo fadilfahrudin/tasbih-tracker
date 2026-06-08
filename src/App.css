@@ -57,6 +57,10 @@
   }
 }
 
+.counterSection {
+  position: relative;
+}
+
 .counter {
   border-radius: 100%;
   color: var(--accent);
@@ -76,13 +80,40 @@
   }
 }
 
-.modalContainer {
-  backdrop-filter: blur(20px) ;
+.decrement {
   position: absolute;
+  left: 32px;
+  bottom: 20%;
+  background: var(--accent-border);
+  cursor: pointer;
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.3s;
+  border: 2px solid transparent;
+
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.modalContainer {
+  backdrop-filter: blur(20px);
+  position: absolute;
+  z-index: 9999;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 section.wording {

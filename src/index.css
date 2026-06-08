@@ -20,6 +20,7 @@
 
   --surface-btn: var(--accent-border);
   --surface-container: var(--bg);
+  --surface-bg: var(--accent-bg);
 
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
@@ -54,6 +55,7 @@ html.dark {
 
   --surface-btn: var(--secondary);
   --surface-container: var(--bg);
+  --surface-bg: var(--accent-bg);
 
   --shadow:
     rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
@@ -110,7 +112,7 @@ a{
 
 
 input{
-  border: none;
+  border: 1px solid var(--accent-border);
   outline: none;
   width: 100%;
   background-color: transparent;
