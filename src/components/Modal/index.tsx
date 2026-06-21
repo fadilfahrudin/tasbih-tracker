@@ -36,8 +36,8 @@ const Modal: React.FC<Props> = ({
                     }
                 </div>
                 <div className={styles.footer}>
-                    <button type='button' onClick={cencel}>Batalkan</button>
-                    <button type='button' disabled={isFormInputField} onClick={action}>{actionText}</button>
+                    <button type='button' className={styles.btnFooter} onClick={cencel}>Batalkan</button>
+                    <button type='button' className={styles.btnFooter} disabled={isFormInputField} onClick={action}>{actionText}</button>
                 </div>
             </div>
         </div>

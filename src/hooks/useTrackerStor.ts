@@ -31,7 +31,7 @@ export const useTrackerStore = create<TrackerState>()(
                         trackerId: unix,
                         trackerName: payload.trackerName,
                         counted: payload.counted,
-                        createdAt: new Date(unix).toISOString(),
+                        createdAt: new Date().toISOString(),
                     };
 
                     return {

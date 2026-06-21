@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  outline: none;
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
@@ -22,6 +23,12 @@
   --surface-container: var(--bg);
   --surface-bg: var(--accent-bg);
 
+  --surface-tab: var(--accent-border);
+  --surface-tab-active: var(--accent);
+
+  --strok-chart: var(--secondary);
+
+  --surface-accordion: var(--accent);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
@@ -56,6 +63,12 @@ html.dark {
   --surface-btn: var(--secondary);
   --surface-container: var(--bg);
   --surface-bg: var(--accent-bg);
+
+  --surface-tab: var(--accent-bg);
+  --surface-tab-active: var(--secondary);
+
+  --strok-chart: var(--accent);
+  --surface-accordion: var(--accent-bg);
 
   --shadow:
     rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;

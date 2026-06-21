@@ -37,22 +37,19 @@
   }
 }
 
-.body {
-}
-
 .footer {
   display: flex;
   justify-content: flex-end;
   gap: 1em;
 
-  button {
+  .btnFooter {
     background: none;
-    border: 1px solid var(--accent-border) !important;
+    border: 1px solid var(--accent-border);
     border-radius: 0.5em;
     padding: 1em;
     color: var(--surface-container);
     font-weight: bold;
-    height: max-content !important;
+    height: max-content;
 
     &:first-child {
       background-color: var(--accent-border);
