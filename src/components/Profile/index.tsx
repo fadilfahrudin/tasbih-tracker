@@ -64,7 +64,7 @@ const Profile = () => {
 
                 <div className={styles.dzikirJournal}>
                     <h2>Grafik Perkembangan </h2>
-                    <Analytics />
+                    <Analytics currentDate={currentDate} />
                 </div>
 
             </section>

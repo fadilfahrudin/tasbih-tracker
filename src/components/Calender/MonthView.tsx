@@ -83,7 +83,7 @@ const MonthView = ({ onChange }: CalendarProps) => {
                     className={styles.btnMonthNavigation}
                     onClick={() => setCurrentMonth(prev => prev.subtract(1, 'month'))}
                 >
-                    <IoChevronBackOutline size={24}/>
+                    <IoChevronBackOutline size={24} />
                 </button>
 
                 <h3>
@@ -98,7 +98,7 @@ const MonthView = ({ onChange }: CalendarProps) => {
                     onClick={() => setCurrentMonth(prev => prev.add(1, 'month'))}
                     disabled={currentMonth.isSame(today, 'month')}
                 >
-                    <IoChevronForwardOutline size={24}/>
+                    <IoChevronForwardOutline size={24} />
                 </button>
             </div>
 

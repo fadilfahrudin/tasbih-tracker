@@ -11,10 +11,13 @@ import { IoClose } from 'react-icons/io5';
 import { useTrackerStore } from '../../../hooks/useTrackerStor';
 import { dayjs } from '../../../../utils/dayjs';
 import { cn } from '../../../../utils/cn';
+import type { Dayjs } from 'dayjs';
 
 type ViewMode = 'year' | 'month' | 'week';
-
-const Analytics = () => {
+interface Props {
+    currentDate: Dayjs
+}
+const Analytics: React.FC<Props> = ({ currentDate }) => {
     const trackerState = useTrackerStore((state) => state.tracker)
     const [viewMode, setViewMode] = useState<ViewMode>('week');
     const isAnimationActive = true;
@@ -31,7 +34,19 @@ const Analytics = () => {
                 'Min'
             ];
 
-            const grouped = trackerState.reduce(
+            const startWeek = dayjs(currentDate).startOf('isoWeek');
+            const endWeek = dayjs(currentDate).endOf('isoWeek');
+
+            const currentWeekData = trackerState.filter((item) => {
+                const date = dayjs(item.createdAt);
+
+                return (
+                    date.isSameOrAfter(startWeek) &&
+                    date.isSameOrBefore(endWeek)
+                );
+            });
+
+            const grouped = currentWeekData.reduce(
                 (acc, item) => {
                     const day = dayjs(item.createdAt).format('ddd');
 
@@ -66,7 +81,7 @@ const Analytics = () => {
             label,
             total,
         }));
-    }, [viewMode, trackerState]);
+    }, [viewMode, trackerState, currentDate]);
 
     return (
         <div className={styles.container}>
